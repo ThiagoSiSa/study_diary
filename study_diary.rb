@@ -1,5 +1,6 @@
 class InitialPage 
     require './exit'
+    require './register'
 
     while true do
         puts("\n
@@ -15,7 +16,8 @@ class InitialPage
                 title=gets.chomp()
                 puts 'Digite uma categoria para esse item de estudo'
                 category = gets.chomp()
-                Register.new(title, category)
+                Register.new(category, title)
+                
             elsif num == '2'
                 SeeAll.new
             elsif num == '3'
@@ -27,6 +29,7 @@ class InitialPage
             else
                 puts "Digite um numero válido"
                 InitialPage.new
+                
             end
     end         
 end
