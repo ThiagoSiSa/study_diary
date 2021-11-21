@@ -1,8 +1,7 @@
-   class InitialPage
-    
-   def initialize()
-        
+class InitialPage 
+    require './exit'
 
+    while true do
         puts("\n
         [1] Cadastrar um item para estudar \n
         [2] Ver todos os itens cadastrados \n
@@ -10,7 +9,7 @@
         [4] Sair \n
         Escolha uma opção:")
 
-    num =gets.strip
+        num =gets.strip
             if num == '1' 
                 puts 'Digite um titulo para materia que deseja cadastrar'
                 title=gets.chomp()
@@ -22,11 +21,12 @@
             elsif num == '3'
                 Search.new
             elsif num == '4'
-                Exit()
+                ex=Exit.new
+                puts ex.exiting()
+                break
             else
                 puts "Digite um numero válido"
                 InitialPage.new
             end
-             
-    end
+    end         
 end
