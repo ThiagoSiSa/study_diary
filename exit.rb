@@ -1,11 +1,15 @@
-class Exit 
-    
-    def exiting()
-        return "Obrigado por utilizar meu Software, \n
-        para esclarecer qualquer duvida entre em contato. \n
-        cel: (11)973243010 \n
-        e-mail: santos.auto@hotmail.com \n"
-        fim=gets
-
-    end
+class Exit
+  def self.exiting()
+    puts <<~END
+           ----------------------------------------------------
+           Obrigado por utilizar meu Software,
+           para esclarecer qualquer duvida entre em contato.
+           cel: (11)973243010
+           e-mail: santos.auto@hotmail.com
+           https://www.linkedin.com/in/thiago-santos-33455572/
+           https://github.com/ThiagoSiSa/study_diary
+           ----------------------------------------------------
+         END
+    finish = gets
+  end
 end

@@ -1,19 +1,17 @@
 class Register
-    attr_accessor :title, :category
-    require 'json'
+  require 'sqlite3'
 
-    def initialize(title='Geral',category='Geral')
-        @title=title
-        @category=category
+  def self.create(title, category)
+    data = [[title, category, 0]]
+    db = SQLite3::Database.open "db/data.db"
+    db.execute('INSERT INTO study_items (title, category, done) VALUES(?,?,?)', data)
+  rescue SQLite3::Exception => e
+    puts e
+  ensure
+    db.close if db
 
-        file = File.read('/home/thiago/challenge/data.json')
-        reg = JSON.parse(file)
-        
-        reg["data"].push({"category" => category, "title" => title})
-
-        File.open("/home/thiago/challenge/data.json","w") do |f|
-            f.write(reg.to_json)
-          end
-        InitialPage.new
-    end
+  end
+  
+    InitialPage
+  
 end
