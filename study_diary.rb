@@ -1,6 +1,7 @@
 class InitialPage
   require "./exit"
   require "./register"
+  require"./see_all"
 
   REGISTER = 1
   SEEALL = 2
@@ -29,7 +30,7 @@ class InitialPage
       category = gets.chomp()
       Register.create(title, category)
     elsif num == SEEALL
-      SeeAll.new
+      SeeAll.show()
     elsif num == SEARCH
       Search.new
     elsif num == FINISH
